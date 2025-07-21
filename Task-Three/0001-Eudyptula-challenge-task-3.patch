@@ -1,0 +1,34 @@
+commit dd5b155a47cf14f7561d48376e1f1e04be3c2c49
+Author:     Sumedh W. Jambekar <linuxsumedh@gmail.com>
+AuthorDate: Mon Jul 21 07:53:05 2025 +0530
+Commit:     Sumedh W. Jambekar <linuxsumedh@gmail.com>
+CommitDate: Mon Jul 21 07:53:05 2025 +0530
+
+    Eudyptula challenge, task 3.
+    
+    In this commit, as per the ask of the task3, the Makefile is modified
+    to include the "-eudyptula" string in the EXTRAVERSION field. The
+    EXTRAVERSION field which was earlier set to "rc1" is now changed to
+    "rc1-eudyptula".
+
+Signed-off-by: Sumedh W. Jambekar <linuxsumedh@gmail.com>
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 35e6e5240c61..b367dbb4a0b0 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@
+ VERSION = 6
+ PATCHLEVEL = 16
+ SUBLEVEL = 0
+-EXTRAVERSION = -rc1
++EXTRAVERSION = -rc1-eudyptula
+ NAME = Baby Opossum Posse
+ 
+ # *DOCUMENTATION*
+-- 
+2.43.0
+
