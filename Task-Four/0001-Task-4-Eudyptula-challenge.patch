@@ -1,0 +1,116 @@
+commit 611cbf28907613267661b5e75707587769b3d90a
+Author:     Sumedh W. Jambekar <linuxsumedh@gmail.com>
+AuthorDate: Mon Jul 21 08:23:44 2025 +0530
+Commit:     Sumedh W. Jambekar <linuxsumedh@gmail.com>
+CommitDate: Mon Jul 21 08:23:44 2025 +0530
+
+    Task 4, Eudyptula challenge.
+    
+    In this commit, the file coding_style.c is fixed such that the Linux coding
+    style is adhered to.
+
+Signed-off-by: Sumedh W. Jambekar <linuxsumedh@gmail.com>
+---
+ coding_style.c       | 39 +++++++++++++++++++++++++++++++++++++++
+ fixed_coding_style.c | 43 +++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 82 insertions(+)
+ create mode 100644 coding_style.c
+ create mode 100644 fixed_coding_style.c
+
+diff --git a/coding_style.c b/coding_style.c
+new file mode 100644
+index 000000000000..ceec644b6f20
+--- /dev/null
++++ b/coding_style.c
+@@ -0,0 +1,39 @@
++
++coding_style.c
++#include <linux/module.h>
++#include <linux/kernel.h>
++#include <asm/delay.h>
++#include <linux/slab.h>
++int do_work( int * my_int, int retval ) {
++int x;
++int y=*my_int;
++int z;
++for(x=0;x< * my_int;++x) {
++	udelay(10);
++}
++
++if (y < 10 )
++	// That was a long sleep, tell userspace about it
++	printk("We slept a long time!");
++
++z = x * y;
++
++return z;
++
++}
++int
++my_init (void)
++{
++int x = 10;
++x = do_work(&x, x);
++
++return x;
++
++}
++void my_exit( void )
++{
++return;
++}
++module_init(my_init);
++module_exit(my_exit);
++
+diff --git a/fixed_coding_style.c b/fixed_coding_style.c
+new file mode 100644
+index 000000000000..aa2bfca6fa1d
+--- /dev/null
++++ b/fixed_coding_style.c
+@@ -0,0 +1,43 @@
++/* coding_style.c */
++
++#include <linux/module.h>
++#include <linux/kernel.h>
++#include <asm/delay.h>
++#include <linux/slab.h>
++
++int do_work(int * my_int, int retval) {
++
++	int x;
++	int y = *my_int;
++	int z;
++
++	for(x = 0; x < * my_int; ++x) {
++		udelay(10);
++	}
++
++	if (y < 10) {
++		// That was a long sleep, tell userspace about it
++		printk("We slept a long time!");
++	}
++
++	z = x * y;
++
++	return z;
++}
++
++int my_init (void)
++{
++	int x = 10;
++	x = do_work(&x, x);
++
++	return x;
++}
++
++void my_exit(void)
++{
++	return;
++}
++
++module_init(my_init);
++module_exit(my_exit);
++
+-- 
+2.43.0
+
